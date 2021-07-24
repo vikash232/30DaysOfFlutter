@@ -31,5 +31,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-// Today I learnt how to push a code on github and how to connect login to navigator and also saw
-// how can we use SingleChild
+// Today I learnt abt what is stateful widget, & animated container and 
