@@ -22,7 +22,8 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData(
         brightness: Brightness.dark,
       ),
-      initialRoute: "/",
+      debugShowCheckedModeBanner: false,
+      initialRoute: MyRoutes.homeRoute,
       routes: {
         "/": (context) => new LoginPage(),
         MyRoutes.homeRoute: (context) => HomePage(),
@@ -31,4 +32,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-// Today I learnt abt what is stateful widget, & animated container and 
+// Today I  create a drawer
