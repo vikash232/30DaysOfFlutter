@@ -15,6 +15,8 @@ class _HomePageState extends State<HomePage> {
 
   final String name = "Codepur";
 
+  get item => null;
+
   @override
   void initState() {
     super.initState();
@@ -22,16 +24,20 @@ class _HomePageState extends State<HomePage> {
   }
 
   loadData() async {
+    await Future.delayed(Duration(seconds: 2));
     final catalogJson =
         await rootBundle.loadString("assets/files/catalog.json");
     final decodedData = jsonDecode(catalogJson);
     var productsData = decodedData["products"];
-    print(productsData);
+    CatalogModel.items = List.from(productsData)
+        .map<Item>((Item) => Item.fromMap(item))
+        .toList();
+    setState(() {});
+    // print(productsData);
   }
 
   @override
   Widget build(BuildContext context) {
-    final dummyList = List.generate(20, (index) => CatalogModel.items[0]);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -39,14 +45,16 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: ListView.builder(
-          itemCount: dummyList.length,
-          itemBuilder: (context, index) {
-            return ItemWidget(
-              item: dummyList[index],
-            );
-          },
-        ),
+        child: (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
+            ? ListView.builder(
+                itemCount: CatalogModel.items.length,
+                itemBuilder: (context, index) => ItemWidget(
+                  item: CatalogModel.items[index],
+                ),
+              )
+            : Center(
+                child: CircularProgressIndicator(),
+              ),
       ),
       drawer: MyDrawer(),
     );
