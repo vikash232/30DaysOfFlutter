@@ -22,12 +22,12 @@ class Item {
   });
 
   Item copyWith({
-    int? id,
-    String? name,
-    String? desc,
-    num? price,
-    String? color,
-    String? image,
+    int id,
+    String name,
+    String desc,
+    num price,
+    String color,
+    String image,
   }) {
     return Item(
       id: id ?? this.id,
@@ -51,10 +51,12 @@ class Item {
   }
 
   factory Item.fromMap(Map<String, dynamic> map) {
+    if (map == null) return null;
+
     return Item(
       id: map['id'],
       name: map['name'],
-      desc: map['desc'],
+      desc: map['desc'], 
       price: map['price'],
       color: map['color'],
       image: map['image'],
@@ -71,16 +73,16 @@ class Item {
   }
 
   @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
+  bool operator ==(Object o) {
+    if (identical(this, o)) return true;
 
-    return other is Item &&
-        other.id == id &&
-        other.name == name &&
-        other.desc == desc &&
-        other.price == price &&
-        other.color == color &&
-        other.image == image;
+    return o is Item &&
+        o.id == id &&
+        o.name == name &&
+        o.desc == desc &&
+        o.price == price &&
+        o.color == color &&
+        o.image == image;
   }
 
   @override
