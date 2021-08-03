@@ -16,9 +16,16 @@ class HomeDetailPage extends StatelessWidget {
         super(key: key);
   @override
   Widget build(BuildContext context) {
-    var tag;
     return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+        ),
         backgroundColor: MyTheme.creamColor,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: MyTheme.darkBluishColor,
+          child: Icon(CupertinoIcons.cart),
+        ),
         bottomNavigationBar: Container(
           color: Colors.white,
           child: ButtonBar(
@@ -35,8 +42,8 @@ class HomeDetailPage extends StatelessWidget {
                     shape: MaterialStateProperty.all(
                       StadiumBorder(),
                     )),
-                child: "Buy".text.make(),
-              ).wh(100, 50)
+                child: "Add to cart".text.make(),
+              ).wh(120, 50)
             ],
           ).p32(),
         ),
@@ -67,8 +74,13 @@ class HomeDetailPage extends StatelessWidget {
                             .xl
                             .make(),
                         10.heightBox,
+                        "Dolor sea takimata ipsum sea eirmod aliquyam est. Eos ipsum voluptua eirmod elitr, no dolor dolor amet eirmod dolor labore dolores magna. Amet vero vero vero kasd, dolore sea sed sit invidunt nonumy est sit clita. Diam aliquyam amet tempor diam no aliquyam invidunt. Elitr lorem eirmod dolore clita. Rebum."
+                            .text
+                            .textStyle(context.captionStyle)
+                            .make()
+                            .p16()
                       ],
-                    ).py32(),
+                    ).py64(),
                   ),
                 ))
               ],
