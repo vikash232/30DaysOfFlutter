@@ -1,11 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/models/catalog.dart';
-import 'package:flutter_application_1/widgets/item_widget.dart';
-import 'package:flutter_application_1/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
-
-import 'package:velocity_x/src/extensions/context_ext.dart';
+import 'package:flutter_application_1/models/catalog.dart';
+import 'package:flutter_application_1/widgets/themes.dart';
 
 class HomeDetailPage extends StatelessWidget {
   final Item catalog;
@@ -16,8 +13,8 @@ class HomeDetailPage extends StatelessWidget {
         super(key: key);
   @override
   Widget build(BuildContext context) {
-    var tag;
     return Scaffold(
+        appBar: AppBar(),
         backgroundColor: MyTheme.creamColor,
         bottomNavigationBar: Container(
           color: Colors.white,
