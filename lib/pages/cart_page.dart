@@ -24,7 +24,8 @@ class CertPage extends StatelessWidget {
 class _CartTotal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _cart = CartModel();
+    final CartModel _cart = (Vxstate.store as MyStore).cart;
+
     return SizedBox(
       height: 200,
       child: Row(
@@ -55,13 +56,9 @@ class _CartTotal extends StatelessWidget {
 
 class _CartList extends StatefulWidget {
   @override
-  __CartListState createState() => __CartListState();
-}
-
-class __CartListState extends State<_CartList> {
-  final _cart = CartModel();
-  @override
   Widget build(BuildContext context) {
+    final CartModel _cart = (Vxstate.store as MyStore).cart;
+
     return _cart.items.isEmpty
         ? "Nothing to show".text.xl3.makeCentered()
         : ListView.builder(
