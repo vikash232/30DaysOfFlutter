@@ -5,6 +5,7 @@ import 'package:flutter_application_1/models/cart.dart';
 import 'package:flutter_application_1/models/catalog.dart';
 import 'package:velocity_x/velocity_x.dart';
 
+
 class AddToCart extends StatefulWidget {
   final Item catalog;
   const AddToCart({
@@ -14,7 +15,7 @@ class AddToCart extends StatefulWidget {
 
   @override
   Widget build(BuildContext context) {
-    VxState.listen(context, to: [AddMutation, RemoveMutation]);
+    VxState.watch(context, on: [AddMutation, RemoveMutation]);
     final CartModel _cart = (VxState.store as MyStore).cart;
     bool isInCart = _cart.items.contains(catalog) ?? false;
 
